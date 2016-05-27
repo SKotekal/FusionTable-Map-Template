@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <title>Test Searchable Map</title>
+    <title>Network 9 Resource Directory</title>
     <meta charset='utf-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta content='' name='description' />
@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="css/custom.css"/>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script type="text/javascript" src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
-    <script src="overlappingMarkerSpiderfier.js"></script>
-
+	
+	<!-- Added by Subhodh - Spiderify -->
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="js/overlappingMarkerSpiderfier.js"></script>
+	
   </head>
   <body>
     <div class='navbar navbar-default navbar-static-top'>
@@ -26,8 +27,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
-          <a class='navbar-brand' href='index.html'>Test Searchable Map</a>
+          </button> 
+          <a class='navbar-brand' href='index.html'> Network 9 Resource Directory</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -37,12 +38,11 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-    
-
     <div class='container-fluid'>
-      <div class="well">
       <div class='row'>
         <div class='col-md-4'>
+          <p>This is a demo of <a href='http://derekeder.com'>Derek Eder's</a> <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> using Google <a href='http://support.google.com/fusiontables/answer/2571232?hl=en&ref_topic=1652595'>Fusion Tables</a>. Use this section to give a little context to your map.</p>
+          <div class='well'>
             <h4>
               Address <small>(<a id='find_me' href='#'>find me</a>)</small>
             </h4>
@@ -60,19 +60,28 @@
                 </select>
               </label>
             </p>
-        </div>
 
-        <div class='col-md-4'>
-
-            <h4>
-              Search
-            </h4>
-            <input class='form-control' id='text_search' 
-            placeholder="Enter a keyword or phrase" type='text' />
-        </div>
-
-        <div class='col-md-4'>
-
+            <br />
+            <h4>Custom filters and views</h4>
+            <p>Take a look at the <a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples'>wiki</a> to see how to add your own custom filters and views like:</p>
+            <div class='row'>
+              <div class='col-md-6'>
+                <ul>
+                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-checkboxes'>Checkboxes</a></li>
+                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-radiobuttons'>Radio buttons</a></li>
+                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-drop-down-lists'>Drop down lists</a></li>
+                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-textsearches'>Text searches</a></li>
+                </ul>
+              </div>
+              <div class='col-md-6'>
+                <ul>
+                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-sliders'>Sliders</a></li>
+                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-date-sliders'>Date sliders</a></li>
+                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results'>Results lists</a></li>
+                </ul>
+              </div>
+            </div>
+            <br />
             <a class='btn btn-primary' id='search' href='#'>
               <i class='glyphicon glyphicon-search'></i>
               Search
@@ -81,12 +90,80 @@
               <i class='glyphicon glyphicon-repeat'></i>
               Reset
             </a>
-        </div>
-      </div>
-      </div>
+          </div>
+          <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
 
-      <div class='row'>
-        <div class='col-md-6'>
+
+<!-- Added by Eric - Checkbok for Service Category -->
+<h4>
+  Service Category 
+</h4>
+<ul class='inputs-list unstyled'>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='academic-support' />
+      <span class='filter-box filter-red'></span>
+      Academic Support
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='employment' />
+      <span class='filter-box filter-orange'></span>
+      Employment
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='housing' />
+      <span class='filter-box filter-yellow'></span>
+      Housing
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='medical-care' />
+      <span class='filter-box filter-green'></span>
+      Medical Care
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='mental-health' />
+      <span class='filter-box filter-skyblue'></span>
+      Mental Health
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='parent-guardian-support' />
+      <span class='filter-box filter-purple'></span>
+      Parent/Guardian Support
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='youth-support' />
+      <span class='filter-box filter-pink'></span>
+      Youth Support
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='other' />
+      <span class='filter-box filter-blue'></span>
+      Other
+    </label>
+  </li>
+</ul>
+
+
+
+
+
+
+        </div>
+        <div class='col-md-8'>
           <noscript>
             <div class='alert alert-info'>
               <h4>Your JavaScript is disabled</h4>
@@ -96,62 +173,17 @@
           <div id='map_canvas'></div>
           <p class='pull-right'>
             <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>.
-          </p>
-
+        </p>
         </div>
-
-        
-        <div class='col-md-6'>
-          <div class='well'>
-            <h4>
-              Categories
-            </h4>
-            <ul class='inputs-list unstyled'>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType1' />
-                  <span class='filter-box filter-red'></span>
-                  Home
-                </label>
-              </li>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType2' />
-                  <span class='filter-box filter-yellow'></span>
-                  School
-                </label>
-              </li>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType3' />
-                  <span class='filter-box filter-blue'></span>
-                  Temple
-                </label>
-              </li>
-            </ul>
-          </div>
-
-          <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
-          <div class='well'>
-            <!-- <table class="table"> -->
-            <!-- </table>       -->
-
-            <div id='results_list'></div>
-          </div>
-        </div>
-          
-        
-      </div>
-
-
       </div>
     </div>
 
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.address.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+    <!--Commented by Subhodh - <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>-->
     <script type="text/javascript" src="js/maps_lib.js"></script>
+	<script src="js/overlappingMarkerSpiderfier.js"></script>
     <script type='text/javascript'>
       //<![CDATA[
         $(window).resize(function () {
@@ -161,14 +193,15 @@
           $('#map_canvas').css('height', (h - offsetTop));
         }).resize();
         
-        $(function() {
+                $(function() {
           var myMap = new MapsLib({
-            fusionTableId:      "1y_dkjO0yf5yxQxaqdk8hIG5YVcECC8Vg-TVzf-Bz",
+            fusionTableId:      "14D2Ie9US832vlDk435aUkRIIg_eqtbcAq0GloIhL", //Need to change this fusiontableid to real one
             googleApiKey:       "AIzaSyAF7Syz8InHGYWi_zRABKqmle_6FGzIN40",
             locationColumn:     "Location",
-            map_center:         [42.340356,-71.214457],
-            locationScope:      "west newton"
+            map_center:         [41.789546, -87.599630],
+            locationScope:      "chicago"
           });
+
 
           var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search_address'));
       
@@ -205,33 +238,6 @@
                   return false;
               }
           });
-
-          // add stuff for spiderfier here???
-          // var oms = new OverlappingMarkerSpiderfier(map);
-
-          // var iw = new gm.InfoWindow();
-          // oms.addListener('click', function(marker, event) {
-          //   iw.setContent(marker.desc);
-          //   iw.open(map, marker);
-          // });
-
-          // oms.addListener('spiderfy', function(markers) {
-          //   iw.close();
-          // });
-
-          // for (var i = 0; i < window.mapData.length; i ++) {
-          //   var datum = window.mapData[i];
-          //   var loc = new gm.LatLng(datum.lat, datum.lon);
-          //   var marker = new gm.Marker({
-          //     position: loc,
-          //     title: datum.h,
-          //     map: map
-          //   });
-          //   marker.desc = datum.d;
-          //   oms.addMarker(marker);  // <-- here
-          // }
-
-
         });
       //]]>
     </script>
